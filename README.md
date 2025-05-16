@@ -79,8 +79,3 @@ You may also need to manually install Grove display libraries and PiCamera2 supp
 Y2 AI & Data Engineering — Nanyang Polytechnic  
 Module: Internet Of Things Application
 
----
-
-## 📄 License
-
-This project is for educational purposes only and is not intended for commercial use.
