@@ -1,18 +1,32 @@
-# OptiFlow
-An intelligent queue management system powered by Raspberry Pi that uses sensors, computer vision, and automation to manage two queues in real-time.
+# Introduction
+![Optiflow Cover Page](Images/Optiflow_cover_page.png)
+Optiflow is an AI-powered queue management system using a Raspberry Pi that combines sensors, computer vision, and automation to estimate crowd density across two queues in real time. The system uses a YOLOv8 object detection model to detect overcrowding early and automatically triggers actions (e.g., alerts/signage) to reduce congestion and improve flow in high foot traffic areas.
 
----
+## 🚀 Features
 
-## 📌 Description
+- **Real-time dual-queue tracking**  
+  Maintains live counts for two separate queues using entry/exit events.
 
-This project combines hardware and software components to monitor and control two entry lines. It uses:
-- Ultrasonic sensors to track queue entries and exits  
-- A PiCamera and YOLOv8 for real-time person detection  
-- Servo motors to control access gates  
-- An LCD to display live queue counts  
-- Flask integration to send live data to a remote server
+- **Vision-based person verification (YOLOv8)**  
+  Detects people from the PiCamera feed to validate counts and improve accuracy.
 
-The system supports snapshot capture, override logic via YOLO, and multi-threaded queue management for robust performance.
+- **Overcrowding detection + automated response**  
+  Triggers actions (e.g., alerts/signage / access control) when queue density exceeds a threshold.
+
+- **Servo-controlled gate management**  
+  Automatically manages access gates to regulate flow and prevent congestion.
+
+- **Live status display (LCD)**  
+  Shows real-time queue counts and system status for on-site monitoring.
+
+- **Remote dashboard updates (Flask)**  
+  Sends live queue metrics to a server endpoint for continuous dashboard updates and logging.
+
+- **Snapshot capture with detection overlay**  
+  Captures frames with bounding boxes for monitoring, debugging, and evidence.
+
+- **Multi-threaded processing for stability**  
+  Handles sensors, vision inference, display updates, and server requests concurrently for smooth real-time performance.
 
 ---
 
@@ -30,16 +44,32 @@ The system supports snapshot capture, override logic via YOLO, and multi-threade
 
 ---
 
-## 🚀 Features
+## 🔍 How It Works
+![Optiflow Cover Page](Images/How_Optiflow_works.png)
+1) **Detect entry/exit (Ultrasonic Sensors)**  
+   Ultrasonic sensors placed at each queue detect when a person **enters or leaves**, updating the live count for **Queue 1** and **Queue 2**.
 
-- Real-time person counting with YOLOv8  
-- Dual-queue monitoring using ultrasonic sensors  
-- Servo-controlled gate management  
-- LCD display for live queue updates  
-- Periodic data logging to a remote server  
-- Snapshot capture with object detection overlay  
+2) **Compute crowd density + display status (LCD)**  
+   The Raspberry Pi continuously calculates **queue density** from the latest counts and displays:
+   - Live people count per queue  
+   - Queue status (Normal / Crowded)
 
----
+3) **Regulate flow (Servo Motor Gates)**  
+   When a queue exceeds a crowd threshold, the system triggers the servo motors to:
+   - **Close** the gate to prevent overcrowding  
+   - **Re-open** the gate once density returns to a safe level
+
+4) **Verify & correct counts (Camera + YOLOv8 Override)**  
+   A PiCamera runs **YOLOv8 person detection** to validate the sensor counts.  
+   If the ultrasonic count is inaccurate (e.g., people walking too close together), YOLO **overrides/corrects** the count to maintain accuracy.
+
+5) **Remote logging + live monitoring (Server + Dashboard)**  
+   Queue metrics are sent to a **remote server** for logging, which then updates a **live dashboard** so staff can monitor queue conditions in real time.
+![Optiflow Cover Page](Images/Optiflow_Dashboard.png)
+
+**Pipeline summary:**  
+`Ultrasonic Sensors → Live Count → Crowd Density → Servo Gate Control → YOLOv8 Override → Server Logging → Live Dashboard`
+
 
 ## 📂 File Overview
 
@@ -77,5 +107,5 @@ You may also need to manually install Grove display libraries and PiCamera2 supp
 
 **Lim Jin Bin**  
 Y2 AI & Data Engineering — Nanyang Polytechnic  
-Module: Internet Of Things Application
+Module: IOTA (Internet Of Things Application)
 
