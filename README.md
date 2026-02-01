@@ -110,9 +110,13 @@ You may also need to manually install Grove display libraries and PiCamera2 supp
 
 ---
 
-## 👤 Author
+## 👤 Author & Credits
 
-**Lim Jin Bin**  
-Y2 AI & Data Engineering — Nanyang Polytechnic  
-Module: IOTA (Internet Of Things Application)
+Optiflow was developed by:
+- **Lim Jin Bin**
+- [**Mattias Lee**](https://github.com/FatManSG)
+- **Gary Lim**
+
+**Programme:** Y2 AI & Data Engineering — Nanyang Polytechnic  
+**Module:** IOTA (Internet of Things Application)
 
