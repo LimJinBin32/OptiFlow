@@ -70,6 +70,13 @@ Optiflow is an AI-powered queue management system using a Raspberry Pi that comb
 **Pipeline summary:**  
 `Ultrasonic Sensors → Live Count → Crowd Density → Servo Gate Control → YOLOv8 Override → Server Logging → Live Dashboard`
 
+## 🎥 Video Demo
+
+Watch Optiflow in action here:
+
+- **Demo Video:** [https://youtu.be/RCbyLNdOA08]
+
+
 
 ## 📂 File Overview
 
